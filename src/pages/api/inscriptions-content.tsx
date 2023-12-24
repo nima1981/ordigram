@@ -21,6 +21,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		  if (cachedData){
 			 // somehow the file response for dowload scenario makes it so the file can't be displayed, so seems to break it, needs to be fixed:
 			 // ... update: seems fixed now, keeping an eye on it for a little while
+			
+			let extension = 'txt';
+			
+			if (mimetype != undefined)
+			  extension = mimetype?.split('/')?.pop().replace('plain','txt');
+			
 			if (download)
 		    {
 			  res
@@ -31,7 +37,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 				'attachment; filename="' 
 				  + id 
 				  + '.' 
-				  + mimetype?.split('/')?.pop().replace('plain','txt') 
+				  + extension 
 				  + '"'
 			  )
 			  .send(cachedData);
