@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			
 			let extension = 'txt';
 			
-			if (mimetypeString != 'undefined'){
+			if (mimetypeString != undefined){
 			  extension = mimetypeString.split('/').pop().replace('plain','txt');
 			}
 
