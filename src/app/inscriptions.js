@@ -867,7 +867,7 @@ function Pagination({currentPage, limit, total=40,  handleClick, cssId="paginati
   );
 }
 
-export function PageTitle({filterParameters = null, handleTagClick = null, page = 0, address = null, id = null}){
+export function PageTitle({filterParameters = null, handleTagClick = null, page = 0, address = null, id = ''}){
 	
   const [addressState, setAddressState] = useState({value: address, copied: false});
   const [idState, setIdState] = useState({value: id, copied: false});
