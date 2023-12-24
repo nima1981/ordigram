@@ -22,7 +22,7 @@ import { BsArrowLeftSquare } from "react-icons/bs";
 export default function Inscriptions(
   {
     limit = 20, 
-	address = null, 
+	address = '', 
 	initialGridView = false, 
 	initialFileTypes = {
 	  images: true,
@@ -412,7 +412,7 @@ export default function Inscriptions(
   );
 }
 
-function Inscription({ isDetailsPage = false, currentUrl=null, ownerAddress, genesisAddress, genesisTransactionId, offset, output, id, number, contentType, mimeType, satoshi, satoshiRarity, contentLength, date, height, satoshiCoinbaseHeight, genesisBlockHash, fee, value }){
+function Inscription({ isDetailsPage = false, currentUrl='', ownerAddress, genesisAddress, genesisTransactionId, offset, output, id, number, contentType, mimeType, satoshi, satoshiRarity, contentLength, date, height, satoshiCoinbaseHeight, genesisBlockHash, fee, value }){
 
 const [ownerState, setOwnerState] = useState({value: ownerAddress, copied: false});
 const [numberState, setNumberState] = useState({value: number, copied: false});
@@ -603,7 +603,7 @@ export function InscriptionDetails({id, currentUrl = ''}){
 	)
 }
 
-function InscriptionContentDisplay({id, mimeType, url=false, currentUrl=null}){
+function InscriptionContentDisplay({id, mimeType, url=false, currentUrl=''}){
   
   const [fileData, setFileData] = useState(null);
   const [contentState, setContentState] = useState({value: '', copied: false});
