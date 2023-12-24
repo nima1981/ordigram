@@ -7,6 +7,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	const {id = '', mimetype = '', download = ''} = req.query;
 	const responseType = download ? 'document' : 'arraybuffer';
 	
+	if (mimetype){
+	  mimetype = mimetype as string;
+	}
+	
 	let queryString = '';
 	
     if (!(id && mimetype)) {
@@ -31,7 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 				'attachment; filename="' 
 				  + id 
 				  + '.' 
-				  + (<string>mimetype).split('/').pop().replace('plain','txt') 
+				  + (mimetype).split('/').pop().replace('plain','txt') 
 				  + '"'
 			  )
 			  .send(cachedData);
