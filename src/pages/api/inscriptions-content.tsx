@@ -31,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 				'attachment; filename="' 
 				  + id 
 				  + '.' 
-				  + (mimetype as string).split('/').pop().replace('plain','txt') 
+				  + (<string>mimetype).split('/').pop().replace('plain','txt') 
 				  + '"'
 			  )
 			  .send(cachedData);
