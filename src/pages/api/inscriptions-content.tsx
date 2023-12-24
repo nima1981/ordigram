@@ -9,8 +9,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	
 	let  mimetypeString = 'text/plain';
 	
-	if (mimetype)
-	  mimetypeString = mimetype as string;
+	/*if (mimetype)
+	  mimetypeString = mimetype as string;*/
 	
 	let queryString = '';
 	
