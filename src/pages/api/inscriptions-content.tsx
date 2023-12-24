@@ -24,7 +24,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			
 			let extension = 'txt';
 			
-			extension = mimetype?.split('/').pop()?.replace('plain','txt') || 'txt';
+			if(typeof mimetype != undefined)
+			  extension = mimetype?.split('/').pop()?.replace('plain','txt') || 'txt';
 			
 			if (download)
 		    {
