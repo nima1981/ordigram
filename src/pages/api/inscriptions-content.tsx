@@ -4,7 +4,7 @@ import {hiroOrdinalsApiRequest} from './helpers.js';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	
-	const {id = null, mimetype = null, download = null} = req.query;
+	const {id = null, mimetype = '', download = null} = req.query;
 	const responseType = download ? 'document' : 'arraybuffer';
 	
 	let queryString = '';
