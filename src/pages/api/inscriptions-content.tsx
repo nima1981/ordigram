@@ -7,9 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	let {id = '', mimetype = '', download = ''} = req.query;
 	const responseType = download ? 'document' : 'arraybuffer';
 	
-	if (mimetype){
-	  mimetype = mimetype as string;
-	}
+	const  mimetypeString = mimetype as string;
 	
 	let queryString = '';
 	
@@ -28,8 +26,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			
 			let extension = 'txt';
 			
-			if (typeof mimetype !== 'undefined'){
-			  extension = mimetype.split('/').pop().replace('plain','txt');
+			if (typeof mimetypeString !== 'undefined'){
+			  extension = mimetypeString.split('/').pop().replace('plain','txt');
 			}
 
 			
