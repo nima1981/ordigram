@@ -29,7 +29,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		  //console.log("cachedData: " + cachedData);
 		  
 	    if (cachedData){
-		  res.json(JSON.parse(cachedData));
+		  res.json(JSON.parse(cachedData.toString()));
 		}
 		
     } else {
