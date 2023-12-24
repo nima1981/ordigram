@@ -359,7 +359,8 @@ export default function Inscriptions(
   
     inscriptionsList = 
       inscriptions.results.map((inscription) => 
-	    <Inscription 
+	    <Inscription
+          key={id}		
 	      ownerAddress={inscription.address}
 		  genesisAddress={inscription.genesis_address}
 		  id={inscription.id}
@@ -791,7 +792,7 @@ export function InscriptionsFilter({filterParameters=null, toggleNavbar=null, na
       className="toggle"
       onClick={() => toggleNavbar()}
     >
-      {false ? <BsFilterSquareFill /> : <BsFilter />}
+      {false ? <BsFilter /> : <BsFilter />}
     </button>
 	
 	<button className="toggle-view" onClick={()=>toggleView()}>
