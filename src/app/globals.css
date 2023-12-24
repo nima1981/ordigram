@@ -4,8 +4,8 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  /*--background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;*/
 }
 
 @media (prefers-color-scheme: dark) {
@@ -25,3 +25,475 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.p-24{
+  padding: 0;
+}
+
+/* Inscriptions */
+
+#inscriptions-filter{
+  position: fixed;
+  top: 2.8em;
+  text-align:left;
+}
+
+#home{
+  display: inline-block;
+  float: left;
+}
+
+#home svg {
+  width: 2.5em;
+  height: 2.5em;
+}
+
+#back-button{
+  padding: .2em;
+  float: left;
+}
+
+#back-button svg{
+  width: 2.3em;
+  height: 2.3em;
+}
+
+button.toggle-view{
+  float: right;
+  padding: .1em .2em 0 0;
+}
+
+
+button.toggle-view svg{
+  width: 2.5em;
+  height: 2.5em;
+}
+
+#filter-filetype{
+  margin: 1em 0 0 1em;
+}
+
+#filter-filetype, #filter-rarity, #filter-order {
+  margin: 1em 0 0 1em;
+}
+
+#filter-order{
+  margin-bottom: 1em;
+}
+
+.menu-nav {
+  list-style: none;
+  position: absolute;
+  background: #fff;
+  right: 0;
+  width: 0;
+  overflow: hidden;
+  max-width: 11em;
+  z-index: 9;
+  font-size: 1em;
+  box-shadow: 0 10px 15px -3px rgb(46 41 51 / 8%), 0 4px 6px -2px rgb(71 63 79 / 16%);
+  /*transform: translateX(-100px);
+  transition: transform ease-in-out 0.2s;*/
+  /* transition: width ease 0.2s; */
+}
+
+.menu-nav.show-menu {
+  width: 100%;
+  /*transform: translateX(0px);*/
+}
+
+.menu-nav li a, .menu-nav li span {
+  display: block;
+  padding: 1rem;
+}
+
+.navbar button.toggle {
+  float: right;
+}
+
+.navbar button.toggle svg{
+  height: 2.8em;
+  width: 2.8em;
+}
+
+.navbar {	
+  background-color: #fff;
+  display: block;
+  position: fixed;
+  height: 2.8em;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.dropdown{
+  padding: .5em;
+}
+
+#title-container {
+  margin-bottom: 1.2em;
+  line-height: normal;
+  text-align: center;
+}
+
+#title-container .p-tag{
+  margin: 0 .1em;
+  cursor: pointer;
+}
+
+#title-container h1{
+  font-size: 1.4em;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0 0.2em;
+  display: inline-block;
+  max-width: 67%;
+}
+
+.inscriptions-container {
+  text-align: center;
+  margin-top: 4em;
+}
+
+.inscriptions-container.gridview{
+  text-align: center;
+  margin: 4em auto 0 auto;
+  max-width: 100%;
+  width:1000px;
+  line-height: .1em;
+  
+}
+
+#inscriptions-filter input[type="checkbox"]{
+  width: 1.1em;
+  height: 1.1em;
+}
+
+.inscription-tile {
+  max-width: 800px;
+  margin: auto;
+  margin-bottom: 3em;
+}
+
+.gridview .inscription-tile{
+  margin: 0;
+  display: inline-block;
+/*  margin-right: .45em;*/
+  max-width: unset;
+  overflow: auto;
+  padding: .1em;
+}
+
+.inscription-tile-head {
+  text-align: left;
+  overflow: hidden;
+}
+
+.gridview .inscription-tile-head{
+  display: none;
+}
+
+.gridview .inscription-tile-content{
+  min-height: revert;
+  width: 200px;
+  height: 200px;
+
+}
+
+.inscription-avatar {
+  border-radius: 32px;
+  background: url('/avatar-placeholder.webp');
+  width: 3em;
+  height: 3em;
+  background-size: contain;
+  display: inline-block;
+  border: 2px solid;
+  margin-right: .4em;
+}
+
+span.copied{
+  color: green; 
+  margin-left: 0.2em;
+  font-size: .75em;
+  /*float:right;*/
+  z-index:-1;
+  /*opacity: 0;
+  transition: opacity 2s linear;*/
+}
+
+.inscription-tile-head span.copy{
+  display: inline-block;
+  padding: 1em 0;
+}
+
+.inscription-tile-head span.copied{
+  display: inline-block;
+  padding: .75em 0;
+  vertical-align: top;
+  font-size: .75em;
+  position: absolute;
+}
+
+.inscription-owner {
+  overflow: hidden;
+  font-weight: bold;
+  display: inline-block;
+  max-width: 75%;
+  text-overflow: ellipsis;
+  padding: .75em 0;
+}
+
+@media (max-width: 640px){
+  
+  .inscription-owner {
+    max-width: 71%;
+  }
+
+}
+
+.inscription-tile-content span.copy svg{
+  width: 1.5em;
+  height: 1.5em;
+}
+
+span.copy svg{
+  cursor: pointer;
+  margin-left: .2em;
+}
+
+a.inscription-content-link{
+  width: 100%;
+}
+
+.inscription-info a#download-link{
+  float: right;
+  padding: .4em;
+}
+
+.inscription-info a#download-link{
+	padding: .1em;
+}
+
+.inscription-info a#download-link svg{
+  width: 2.2em;
+  height: 2.2em;
+}
+
+.gridview .inscription-info a#download-link svg{
+  width: 1em;
+  height: 1em;
+}
+
+.inscription-info .datetime {
+  font-size: .8em;
+  color: rgb(115, 115, 115);  
+}
+
+.gridview .inscription-info .datetime {
+  display: none;
+}
+
+.inscription-tile-content{
+  overflow: auto;
+  width: 800px;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+}
+
+.inscription-tile-content embed{
+  width: 100%;
+  min-height: 50em;
+  max-height: 100%;
+}
+
+.inscription-tile-content img, .inscription-tile-content video {
+  image-rendering: pixelated;
+  width: 100%;
+  /*max-width: 640px;*/
+  height: 100%;
+  object-fit: contain;
+}
+
+.text-plain{
+  font-size: 2em;
+  font-weight: bold;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 10px;
+  overflow-wrap: anywhere;
+  line-height: 2em;
+  max-width: 640px;
+  text-align: left;  
+  max-height: 1000px;
+}
+
+.text-plain span.copy{
+  float: right;
+}
+
+.text-plain span.copied{
+  /*float: right;*/
+  position: unset;
+}
+
+.gridview .text-plain{
+  font-size: 1em;
+  font-weight: normal;
+  max-height: 100%;
+}
+
+.inscription-info{
+  text-align: left;
+  /*max-height: 200px;
+  overflow: auto;*/
+}
+
+.gridview .inscription-info {
+  height: 25px;
+  overflow: hidden;
+  width: 200px;
+  line-height: 1em;
+  font-size: 1em;
+}
+
+.inscription-info ul {
+  list-style-type: none;
+  padding: 0.4em;
+  margin: 0;
+}
+
+.gridview .inscription-info ul{
+  padding: .1em 0 0 .2em;
+}
+
+.inscription-info ul li{
+/*  overflow: hidden;
+  text-overflow: ellipsis;*/
+  margin-bottom: 5px;
+}
+
+
+@media (min-width: 800px) {
+
+span.copy{
+  visibility: hidden;
+}
+
+.inscription-tile-content:hover .text-plain span.copy{
+  visibility: visible;
+}
+
+.inscription-tile-head:hover span.copy{
+  visibility: visible;
+}
+
+.inscription-info ul li:hover span.copy{
+  visibility: visible;
+}
+
+}
+
+.inscription-info ul li span.truncate-text {
+  display: inline-block;
+  max-width: 80%;
+  overflow: hidden;
+  vertical-align: bottom;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 640px){
+
+  .inscription-info ul li span.truncate-text {
+    max-width: 65%;
+  }
+
+}
+
+.inscription-info ul li span.copy svg{
+  display: inline;
+  cursor: pointer;
+  margin-left: .2em;
+  vertical-align: baseline;
+}
+
+#pagination-bottom, #pagination-top {
+  margin: 10px auto;
+}
+
+#pagination-bottom button, #pagination-top button {
+  background-color: #F2A900;
+  padding: .1em;
+  width: 5em;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+#previous-button {
+	margin-right: 10px;
+}
+
+/*End Inscriptions*/
+
+/*Profile*/
+
+#title-container span.copy svg{
+  width: 1.5em;
+  height: 1.5em;
+}
+
+#title-container span.copied{
+ display: inline-block;
+ position: absolute;
+}
+
+#title-container span.copy{
+  display: inline-block;
+} 
+
+#title-container:hover span.copy{
+  visibility: visible;
+} 
+
+#title-container .inscription-avatar{
+  margin: auto;
+  display: block;
+}
+
+
+
+/*End Profile*/
+
+/*Inscription Details*/
+
+#inscription-details-container{
+  margin: auto;
+  margin-top: 4em;
+  width: 800px;
+  max-width: 100%;
+
+}
+
+main.inscription-details .inscription-tile{
+  max-width: 100%;
+}
+
+h1#inscription-details-id{
+  margin: auto;
+  font-size: 20px;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 88%;
+  text-align: center;
+}
+
+#inscription-details-id span#id-label{
+}
+
+
+/*End Inscription Details*/
