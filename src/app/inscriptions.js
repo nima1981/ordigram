@@ -535,7 +535,7 @@ if (!isDetailsPage)
   );
 }
 
-export function InscriptionDetails({id, currentUrl = null}){
+export function InscriptionDetails({id, currentUrl = ''}){
   
   const [inscriptionData, setInscriptionData] = useState(null);
   const [loading, setLoading] = useState(true);
