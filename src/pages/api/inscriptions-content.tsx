@@ -28,7 +28,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 			
 			let extension = 'txt';
 			
-			if (valueOf mimetype === 'string'){
+			if (typeof mimetype === 'string'){
 			  extension = mimetype.split('/').pop().replace('plain','txt');
 			}
 

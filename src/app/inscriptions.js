@@ -360,7 +360,7 @@ export default function Inscriptions(
     inscriptionsList = 
       inscriptions.results.map((inscription) => 
 	    <Inscription
-          key={id}		
+          key={inscription.id}		
 	      ownerAddress={inscription.address}
 		  genesisAddress={inscription.genesis_address}
 		  id={inscription.id}
