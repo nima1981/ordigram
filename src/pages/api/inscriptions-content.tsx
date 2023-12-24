@@ -4,13 +4,8 @@ import {hiroOrdinalsApiRequest} from './helpers.js';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	
-	let {id = '', mimetype = '', download = ''} = req.query;
+	const {id = null, mimetype = null, download = null} = req.query;
 	const responseType = download ? 'document' : 'arraybuffer';
-	
-	let  mimetypeString = 'text/plain';
-	
-	if (mimetype)
-	  mimetypeString = mimetype as string;
 	
 	let queryString = '';
 	
@@ -26,14 +21,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		  if (cachedData){
 			 // somehow the file response for dowload scenario makes it so the file can't be displayed, so seems to break it, needs to be fixed:
 			 // ... update: seems fixed now, keeping an eye on it for a little while
-			
-			let extension = 'txt';
-			
-			if (mimetypeString != undefined){
-			  extension = mimetypeString.split('/').pop()?.replace('plain','txt') || 'txt';
-			}
-
-			
 			if (download)
 		    {
 			  res
@@ -44,7 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 				'attachment; filename="' 
 				  + id 
 				  + '.' 
-				  + extension 
+				  + mimetype.split('/')?.pop().replace('plain','txt') 
 				  + '"'
 			  )
 			  .send(cachedData);
