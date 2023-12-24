@@ -7,7 +7,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	let {id = '', mimetype = '', download = ''} = req.query;
 	const responseType = download ? 'document' : 'arraybuffer';
 	
-	const  mimetypeString = mimetype as string;
+	let  mimetypeString = 'text/plain';
+	
+	if (mimetype)
+	  mimetypeString = mimetype as string;
 	
 	let queryString = '';
 	
