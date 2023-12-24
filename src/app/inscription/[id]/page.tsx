@@ -7,7 +7,7 @@ export default function Inscription({ params }: { params: { id: string } }) {
   	
   return (
     <main className="flex min-h-screen flex-col justify-between p-24 inscription-details">
-	  <InscriptionsFilter back={true} />
+	  <InscriptionsFilter />
 	  <div id="inscription-details-container">
 	    <PageTitle id={params.id} />
 	    <InscriptionDetails 
