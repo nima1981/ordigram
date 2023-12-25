@@ -4,7 +4,7 @@ import { hiroOrdinalsApiRequest, md5 } from './helpers.js';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	
-	const {mime_type = null, rarity = null, order = 'newest', ...remainingQueryParams} = req.query;
+	const {mime_type = '', rarity = '', order = 'newest', ...remainingQueryParams} = req.query;
 	
 	let queryString = '';
 	let cacheFileName = 'inscriptions-list';
