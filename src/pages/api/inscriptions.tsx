@@ -44,8 +44,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	}
 	
 	Object.keys(remainingQueryParams).map((parameterName, i) => {
-      queryString += typeof queryString === 'string' ? '&' + parameterName + "=" + encodeURIComponent(remainingQueryParams[parameterName]) : parameterName + "=" + encodeURIComponent(remainingQueryParams[parameterName]);
+    
+	  if (typeof queryString === 'string')
+	    queryString += queryString ? '&' + parameterName + "=" + encodeURIComponent(remainingQueryParams[parameterName]) : parameterName + "=" + encodeURIComponent(remainingQueryParams[parameterName]);
+	
 	  cacheFileName += cacheFileName ? '-' + parameterName + "-" + encodeURIComponent(remainingQueryParams[parameterName]) : parameterName + "-" + encodeURIComponent(remainingQueryParams[parameterName]);
+
     });
 	
 	
