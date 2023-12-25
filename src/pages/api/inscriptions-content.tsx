@@ -12,6 +12,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (!(id && mimetype)) {
         res.status(400).json({ name: 'no id or mimetype provided' })
     } else {
+		
+		let extension = 'txt';
+			
+		if (mimetype != undefined && typeof mimetype === 'string')
+		  extension = mimetype?.split('/').pop()?.replace('plain','txt') || 'txt';
 
 		if (existsSync('tmp/inscriptions-content/' + id)) {
 			
@@ -21,11 +26,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		  if (cachedData){
 			 // somehow the file response for dowload scenario makes it so the file can't be displayed, so seems to break it, needs to be fixed:
 			 // ... update: seems fixed now, keeping an eye on it for a little while
-			
-			let extension = 'txt';
-			
-			if (mimetype != undefined && typeof mimetype === 'string')
-			  extension = mimetype?.split('/').pop()?.replace('plain','txt') || 'txt';
 			
 			if (download)
 		    {
@@ -57,7 +57,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		    //console.log("response that is sent back from hiscriptions-content.tsx for id " + id + ": " + response);
 			// somehow the file response for dowload scenario makes it so the file can't be displayed, so seems to break it, needs to be fixed:
 			if (download)
-			  res.status(200).setHeader('content-type', 'application/octet-stream').setHeader('content-disposition', 'attachment; filename="' + id + '.' + mimetype.split('/').pop() + '"').send(response.data);
+			  res.status(200).setHeader('content-type', 'application/octet-stream').setHeader('content-disposition', 'attachment; filename="' + id + '.' + extension + '"').send(response.data);
 		    else
 			  res.json(response.data);
 	         
