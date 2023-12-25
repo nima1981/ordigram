@@ -39,7 +39,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	    queryString += queryString ? '&order=asc&order_by=rarity' : 'order=asc&order_by=rarity';
 	  }
 	  
-	  cacheFileName += cacheFileName ? '-order-' + encodeURIComponent(order) : 'order-' + encodeURIComponent(order);
+	  if (typeof order === 'string')
+	    cacheFileName += cacheFileName ? '-order-' + encodeURIComponent(order) : 'order-' + encodeURIComponent(order);
 	}
 	
 	Object.keys(remainingQueryParams).map((parameterName, i) => {
