@@ -45,7 +45,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	
 	Object.keys(remainingQueryParams).map((parameterName, i) => {
     
-	  //if (queryString != undefined && typeof queryString === 'string' && parameterName != undefined && typeof parameterName === 'string' && remainingQueryParams[parameterName] != undefined && typeof remainingQueryParams[parameterName] === 'string')
 	  queryString += queryString ? '&' + (parameterName as string) + "=" + encodeURIComponent(remainingQueryParams.parameterName as string) : (parameterName as string) + "=" + encodeURIComponent(remainingQueryParams.parameterName as string);
 	
 	  cacheFileName += cacheFileName ? '-' + (parameterName as string) + "-" + encodeURIComponent(remainingQueryParams.parameterName as string) : (parameterName as string) + "-" + encodeURIComponent(remainingQueryParams.parameterName as string);
@@ -69,7 +68,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		
     if (cacheAlive) {
 	
-	  const cachedData = readFileSync(cachePath);
+	  const cachedData = readFileSync(cachePath).toString();
 		  //console.log("cachedData: " + cachedData);
 		  
 	    if (cachedData){
