@@ -45,10 +45,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	
 	Object.keys(remainingQueryParams).map((parameterName, i) => {
     
-	  if (queryString != undefined && typeof queryString === 'string' && parameterName != undefined && typeof parameterName === 'string' && remainingQueryParams[parameterName] != undefined && typeof remainingQueryParams[parameterName] === 'string')
-	    queryString += queryString ? '&' + (parameterName as string) + "=" + encodeURIComponent(remainingQueryParams.parameterName as string) : (parameterName as string) + "=" + encodeURIComponent(remainingQueryParams.parameterName as string);
+	  //if (queryString != undefined && typeof queryString === 'string' && parameterName != undefined && typeof parameterName === 'string' && remainingQueryParams[parameterName] != undefined && typeof remainingQueryParams[parameterName] === 'string')
+	  queryString += queryString ? '&' + (parameterName as string) + "=" + encodeURIComponent(remainingQueryParams.parameterName as string) : (parameterName as string) + "=" + encodeURIComponent(remainingQueryParams.parameterName as string);
 	
-	  cacheFileName += cacheFileName ? '-' + parameterName + "-" + encodeURIComponent(remainingQueryParams[parameterName]) : parameterName + "-" + encodeURIComponent(remainingQueryParams[parameterName]);
+	  cacheFileName += cacheFileName ? '-' + (parameterName as string) + "-" + encodeURIComponent(remainingQueryParams[parameterName as string]) : (parameterName as string) + "-" + encodeURIComponent(remainingQueryParams[parameterName as string]);
 
     });
 	
