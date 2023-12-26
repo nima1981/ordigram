@@ -48,7 +48,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	  //if (queryString != undefined && typeof queryString === 'string' && parameterName != undefined && typeof parameterName === 'string' && remainingQueryParams[parameterName] != undefined && typeof remainingQueryParams[parameterName] === 'string')
 	  queryString += queryString ? '&' + (parameterName as string) + "=" + encodeURIComponent(remainingQueryParams.parameterName as string) : (parameterName as string) + "=" + encodeURIComponent(remainingQueryParams.parameterName as string);
 	
-	  cacheFileName += cacheFileName ? '-' + (parameterName as string) + "-" + encodeURIComponent(remainingQueryParams[parameterName as string]) : (parameterName as string) + "-" + encodeURIComponent(remainingQueryParams[parameterName as string]);
+	  cacheFileName += cacheFileName ? '-' + (parameterName as string) + "-" + encodeURIComponent(remainingQueryParams.parameterName as string) : (parameterName as string) + "-" + encodeURIComponent(remainingQueryParams.parameterName as string);
 
     });
 	
