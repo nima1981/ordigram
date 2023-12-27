@@ -7,6 +7,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	
 	const {mime_type = '', rarity = '', order = 'newest', ...remainingQueryParams} = req.query;
 	
+	console.log('tmpdir: ' + tmpdir);
+	
 	let queryString = '';
 	let cacheFileName = 'inscriptions-list';
 	
