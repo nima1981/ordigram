@@ -1,15 +1,18 @@
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { hiroOrdinalsApiRequest, md5 } from './helpers.js';
+import { tmpdir } from 'os';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	
 	const {id = ''} = req.query;
 	
+	const tmp = tmpdir();
+	
 	let queryString = '';
 	let cacheFileName = 'inscription-' + id;
 	
-	const cachePath = 'tmp/inscription/' + cacheFileName;
+	const cachePath = tmp + '/inscription/' + cacheFileName;
 	
 	let cacheAlive = false;
 	

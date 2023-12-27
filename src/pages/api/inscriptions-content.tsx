@@ -1,12 +1,13 @@
 import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { NextApiRequest, NextApiResponse } from 'next';
 import {hiroOrdinalsApiRequest} from './helpers.js';
+import { tmpdir } from 'os';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	
 	const {id = null, mimetype = '', download = null} = req.query;
 	const responseType = download ? 'document' : 'arraybuffer';
-	
+	const tmp = tmpdir();
 	let queryString = '';
 	
     if (!(id && mimetype)) {
@@ -18,9 +19,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		if (mimetype != undefined && typeof mimetype === 'string')
 		  extension = mimetype?.split('/').pop()?.replace('plain','txt') || 'txt';
 
-		if (existsSync('tmp/inscriptions-content/' + id)) {
+		//if (existsSync( tmp + '/inscriptions-content/' + id)) {
+		if (existsSync( tmp + '/' + id)) {
 			
-		  const cachedData = readFileSync('tmp/inscriptions-content/' + id);
+		  //const cachedData = readFileSync( tmp + '/inscriptions-content/' + id );
+		  const cachedData = readFileSync( tmp + '/' + id );
 		  //console.log("cachedData: " + cachedData);
 		  
 		  if (cachedData){
@@ -52,7 +55,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		  
 		  hiroOrdinalsApiRequest('inscriptions/' + id + '/content', '', responseType).then(response => {
 	      
-		    writeFileSync(`tmp/inscriptions-content/${id}`, response.data);
+		    //writeFileSync(tmp + `/inscriptions-content/${id}`, response.data);
+			writeFileSync(tmp + `/${id}`, response.data);
 		  
 		    //console.log("response that is sent back from hiscriptions-content.tsx for id " + id + ": " + response);
 			// somehow the file response for dowload scenario makes it so the file can't be displayed, so seems to break it, needs to be fixed:

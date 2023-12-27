@@ -7,7 +7,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	
 	const {mime_type = '', rarity = '', order = 'newest', ...remainingQueryParams} = req.query;
 	
-	console.log('tmpdir: ' + tmpdir);
+	const tmp = tmpdir();
+	
+	console.log('tmpdir: ' + tmp);
 	
 	let queryString = '';
 	let cacheFileName = 'inscriptions-list';
@@ -56,7 +58,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 	
 	
-	const cachePath = 'tmp/inscriptions-list/' + md5(cacheFileName);
+	//const cachePath = tmp + '/inscriptions-list/' + md5(cacheFileName);
+	const cachePath = tmp + '/' + md5(cacheFileName);
 	
 	let cacheAlive = false;
 	
