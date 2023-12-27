@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 	let queryString = '';
 	let cacheFileName = 'inscription-' + id;
 	
-	const cachePath = tmp + '/inscription/' + cacheFileName;
+	const cachePath = tmp + '/' + cacheFileName;
 	
 	let cacheAlive = false;
 	
