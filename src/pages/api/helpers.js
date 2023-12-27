@@ -4,7 +4,7 @@ export const md5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLower
 
 export function hiroOrdinalsApiRequest(apiUrl, queryParameters = '', responseType = ''){
   
-  const apiKey = 'nimabtc_ewQc8wMxE4oezKjPmLn8xYWMvPGuHH98';
+  const apiKey = '';
   
   const hiroBaseUrl = 'https://api.hiro.so/ordinals/v1/';
   //const queryString = queryParameters ? Object.keys(queryParameters).map(key => key + '=' + queryParameters[key]).join('&') : null;
