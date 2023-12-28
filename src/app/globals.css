@@ -422,8 +422,12 @@ span.copy{
   vertical-align: baseline;
 }
 
-#pagination-bottom, #pagination-top {
+#pagination-top {
   margin: 10px auto;
+}
+
+#pagination-bottom {
+  margin: 1em auto 4em auto;
 }
 
 #pagination-bottom button, #pagination-top button {
