@@ -88,7 +88,10 @@ export default function Inscriptions(
   
   const urlPage = searchParams.get('page');
   initialQueryParameters.page = urlPage ? urlPage : 0;
-    
+  
+  const urlOrder = searchParams.get('order');
+  initialQueryParameters.order = urlOrder ? urlOrder : 'newest';
+  
   const [filterParameters, setFilterParameters] = 
     useState(initialQueryParameters);
   
