@@ -17,7 +17,7 @@ export async function generateMetadata(
   const id = params.id;
   
   return{
-    title: "Bitcoin Ordinals Inscription ID " + id,
+    title: "Bitcoin Ordinals Inscription ID " + id + " | Ordigram",
 	description: "Detailed information about Bitcoin Ordinals inscription ID " + id
   }
   
