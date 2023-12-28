@@ -17,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 		let extension = 'txt';
 			
 		if (mimetype != undefined && typeof mimetype === 'string')
-		  extension = mimetype?.split('/').pop()?.replace('plain','txt') || 'txt';
+		  extension = mimetype?.split('/').pop()?.replace('plain','txt').replace('svg xml','svg') || 'txt';
 
 		//if (existsSync( tmp + '/inscriptions-content/' + id)) {
 		if (existsSync( tmp + '/' + id)) {
