@@ -4,8 +4,6 @@ export const md5 = function(d){var r = M(V(Y(X(d),8*d.length)));return r.toLower
 
 export function hiroOrdinalsApiRequest(apiUrl, queryParameters = '', responseType = ''){
   
-  const apiKey = '';
-  
   const hiroBaseUrl = 'https://api.hiro.so/ordinals/v1/';
   //const queryString = queryParameters ? Object.keys(queryParameters).map(key => key + '=' + queryParameters[key]).join('&') : null;
   const queryString = queryParameters;
@@ -31,8 +29,9 @@ export function hiroOrdinalsApiRequest(apiUrl, queryParameters = '', responseTyp
     config['responseType'] = responseType;
   }
   
-  if (apiKey){
-    config['headers']['x-hiro-api-key'] = apiKey;
+  if (process.env.HIRO_ORDINALS_API_KEY){
+    config['headers']['x-hiro-api-key'] = process.env.HIRO_ORDINALS_API_KEY;
+	console.log('process.env.HIRO_ORDINALS_API_KEY: ' + process.env.HIRO_ORDINALS_API_KEY);
   }
   
     return axios.request(config);
