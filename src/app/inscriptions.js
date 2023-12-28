@@ -18,6 +18,7 @@ import { Tag } from 'primereact/tag';
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { AiOutlineHome } from "react-icons/ai";
 import { BsArrowLeftSquare } from "react-icons/bs";
+import { BsCheck } from "react-icons/bs";
 
 export default function Inscriptions(
   {
@@ -447,7 +448,7 @@ if (!isDetailsPage)
 		<CopyToClipboard text={ownerState.value} onCopy={() => setOwnerState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 		</CopyToClipboard>
-		{ownerState.copied ? <span className="copied">Copied!</span> : null}
+		{ownerState.copied ? <span className="copied"><BsCheck /></span> : null}
 		
 	  </div>
 	  
@@ -464,7 +465,7 @@ if (!isDetailsPage)
 			<CopyToClipboard text={numberState.value} onCopy={() => setNumberState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 			</CopyToClipboard>
-			{numberState.copied ? <span className="copied" >Copied!</span> : null}
+			{numberState.copied ? <span className="copied" ><BsCheck /></span> : null}
 		  </li>
 		  <li>
 		    <b>Id</b> <span title={id} className="truncate-text"><a href={ !isDetailsPage ? "/inscription/" + id + "?back=" + currentUrl + encodeURIComponent('#' + id) : null}>{id}</a></span>
@@ -472,7 +473,7 @@ if (!isDetailsPage)
 			  () => setIdState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 			</CopyToClipboard>
-			{idState.copied ? <span className="copied">Copied!</span> : null}
+			{idState.copied ? <span className="copied"><BsCheck /></span> : null}
 		  </li>
 		  
 		  <li><b>Rarity</b> {satoshiRarity}</li>
@@ -485,7 +486,7 @@ if (!isDetailsPage)
 			  () => setSatoshiState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 			</CopyToClipboard>
-			{satoshiState.copied ? <span className="copied">Copied!</span> : null}
+			{satoshiState.copied ? <span className="copied"><BsCheck /></span> : null}
 		  </li>
 		  
 		  <li><b>Content Length</b> {contentLength} bytes</li>
@@ -498,7 +499,7 @@ if (!isDetailsPage)
 			  () => setGenesisBlockHashState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 			</CopyToClipboard>
-			{genesisBlockHashState.copied ? <span className="copied">Copied!</span> : null}
+			{genesisBlockHashState.copied ? <span className="copied"><BsCheck /></span> : null}
 		  </li>
 
 		  <li><b>Satoshi Height</b> {satoshiCoinbaseHeight}</li>
@@ -509,7 +510,7 @@ if (!isDetailsPage)
 			  () => setGenesisAddressState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 			</CopyToClipboard>
-			{genesisAddressState.copied ? <span className="copied">Copied!</span> : null}
+			{genesisAddressState.copied ? <span className="copied"><BsCheck /></span> : null}
 		  </li>
 		  
 		  <li>
@@ -518,7 +519,7 @@ if (!isDetailsPage)
 			  () => setGenesisTransactionIdState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 			</CopyToClipboard>
-			{genesisTransactionIdState.copied ? <span className="copied">Copied!</span> : null}
+			{genesisTransactionIdState.copied ? <span className="copied"><BsCheck /></span> : null}
 		  </li>
 		  		  <li>
 		    <b>Output</b> <span title={output} className="truncate-text">{output}</span>
@@ -526,7 +527,7 @@ if (!isDetailsPage)
 			  () => setOutputState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 			</CopyToClipboard>
-			{outputState.copied ? <span className="copied">Copied!</span> : null}
+			{outputState.copied ? <span className="copied"><BsCheck /></span> : null}
 		  </li>
 		  <li><b>Offset</b> {offset}</li>
 		  <li><b>Fee</b> {fee} sats</li>
@@ -655,7 +656,7 @@ function InscriptionContentDisplay({id, mimeType, url=false, currentUrl=''}){
 		    <BsCopy className="copy-white" />
 	      </span>
 	    </CopyToClipboard>
-		{contentState.copied ? <span className="copied">Copied!</span> : null}
+		{contentState.copied ? <span className="copied"><BsCheck /></span> : null}
 		</p>		  
 	  );
 	
@@ -732,7 +733,7 @@ function InscriptionContentDisplay({id, mimeType, url=false, currentUrl=''}){
 		        <BsCopy className="copy-white" />
 	          </span>
 			</CopyToClipboard>
-			{contentState.copied ? <span className="copied">Copied!</span> : null}
+			{contentState.copied ? <span className="copied"><BsCheck /></span> : null}
 		  </p>
 		)
 	  }
@@ -914,7 +915,7 @@ export function PageTitle({filterParameters = null, handleTagClick = null, page 
 			<CopyToClipboard text={addressState.value} onCopy={() => setAddressState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 		    </CopyToClipboard> 
-		    {addressState.copied ? <span className="copied">Copied!</span> : null}
+		    {addressState.copied ? <span className="copied"><BsCheck /></span> : null}
 	   </>;
   } else if (id){
 
@@ -927,7 +928,7 @@ export function PageTitle({filterParameters = null, handleTagClick = null, page 
 			<CopyToClipboard text={idState.value} onCopy={() => setIdState({copied: true})}>
 			  <span className="copy"><BsCopy className="copy-white" /></span>
 		    </CopyToClipboard> 
-		    {idState.copied ? <span className="copied">Copied!</span> : null}
+		    {idState.copied ? <span className="copied"><BsCheck /></span> : null}
 	   </>;
 
   } else {
