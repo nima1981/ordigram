@@ -14,7 +14,7 @@ export async function generateMetadata(
   const address = params.address;
   
   return{
-    title: "Bitcoin Address " + address,
+    title: "Bitcoin Address " + address + " Ordinals Inscriptions",
 	description: "Inscriptions Portfolio for Bitcoin Address " + address
   }
   
