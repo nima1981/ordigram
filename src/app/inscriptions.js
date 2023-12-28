@@ -665,7 +665,7 @@ function InscriptionContentDisplay({id, mimeType, url=false, currentUrl=''}){
 	  if (mimeType == 'image/svg+xml'){
 	    //const testString = '<svg version="1.1" baseProfile="full" width="300" height="200" xmlns="http://www.w3.org/2000/svg"> <rect width="100%" height="100%" fill="black" /> <circle cx="150" cy="100" r="90" fill="blue" /></svg>';
 	    return(
-	      <div style={{width: '100%', /*background: 'url(\'/no-image-placeholder.svg\') center center no-repeat #eeeeee',*/ backgroundSize: 'contain'}}>
+	      <div className="inscription-tile-content-container">
 	        <a
 			  href={ url ? '/inscription/' + id + "?back=" + currentUrl + encodeURIComponent('#' + id) : null}
 			>
