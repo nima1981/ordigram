@@ -1,4 +1,10 @@
 import Inscriptions from './inscriptions.js';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Bitcoin Ordinals Inscriptions Browser & Social App | Ordigram',
+  description: 'Ordigram is a lightweight Bitcoin Ordinals Inscriptions browser & social app.',
+}
 
 export default function Home() {
   return (
