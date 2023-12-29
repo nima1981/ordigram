@@ -29,7 +29,7 @@ export default function Inscription({ params, searchParams }: { params: { id: st
   let urlQuery = '';
   
   if(searchParams.back)
-   back = searchParams.back;
+   back = searchParams.back as string;
   
   if (back){
     urlQuery += urlQuery ? '&back=' + encodeURIComponent(back)  : 'back=' + encodeURIComponent(back);
