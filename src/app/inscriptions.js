@@ -170,18 +170,20 @@ export default function Inscriptions(
   if (filterParameters.order != 'newest')
     urlQuery += urlQuery ? "&order=" + encodeURIComponent(filterParameters.order) : "order=" + encodeURIComponent(filterParameters.order);
 
-  let back = null
+  let back = '';
   
   back = searchParams.get('back');
+  
+  if (back){
+    urlQuery += urlQuery ? '&back=' + encodeURIComponent(back)  : 'back=' + encodeURIComponent(back);
+  }
   
   let currentUrl = encodeURIComponent(usePathname());
   
   if(urlQuery)
     currentUrl += encodeURIComponent('?' + urlQuery);
   
-  if (back){
- 	urlQuery += urlQuery ? '&back=' + encodeURIComponent(back)  : 'back=' + encodeURIComponent(back);
-  }
+
 
   if (typeof window !== "undefined") {
 	
@@ -906,17 +908,38 @@ export function PageTitle({filterParameters = null, handleTagClick = null, page 
   let headline = '';
   
   if (address){
-	  headline = 
-	   <>
-		    <div className="inscription-avatar"></div>
-			<h1 id="address" title={address}>
-			  {address}
-			</h1>
-			<CopyToClipboard text={addressState.value} onCopy={() => setAddressState({copied: true})}>
-			  <span className="copy"><BsCopy className="copy-white" /></span>
-		    </CopyToClipboard> 
-		    {addressState.copied ? <span className="copied"><BsCheck /></span> : null}
-	   </>;
+    headline = 
+	  <>
+	    
+		<div className="inscription-avatar">
+		</div>
+	    
+		<h1
+		  id="address"
+		  title={address}
+		>
+		  {address}
+	    </h1>
+		
+		<CopyToClipboard
+		  text={addressState.value}
+		  onCopy={() => setAddressState({copied: true})}
+		>
+		  <span className="copy">
+		    <BsCopy className="copy-white" />
+		  </span>
+		</CopyToClipboard>
+		
+		{
+		  addressState.copied ? <span className="copied"><BsCheck /></span> : null
+		}
+		
+		{ 
+		  page > 1 &&
+	      <div className="header-page-number">Page {page}</div>
+	    }
+		
+	  </>;
   } else if (id){
 
 	  headline = 

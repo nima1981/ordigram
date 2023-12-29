@@ -23,7 +23,22 @@ export async function generateMetadata(
   
 }
 
-export default function Inscription({ params }: { params: { id: string } }) {
+export default function Inscription({ params, searchParams }: { params: { id: string }; searchParams?: { [key: string]: string | string[] | undefined }; }) {
+
+  let back = '';
+  let urlQuery = '';
+  
+  if(searchParams.back)
+   back = searchParams.back;
+  
+  if (back){
+    urlQuery += urlQuery ? '&back=' + encodeURIComponent(back)  : 'back=' + encodeURIComponent(back);
+  }
+  
+  let currentUrl = encodeURIComponent('/inscription/' + params.id);
+  
+  if(urlQuery)
+    currentUrl += encodeURIComponent('?' + urlQuery);
   	
   return (
     <main className="flex min-h-screen flex-col justify-between p-24 inscription-details">
@@ -32,7 +47,7 @@ export default function Inscription({ params }: { params: { id: string } }) {
 	    <PageTitle id={params.id} />
 	    <InscriptionDetails 
 		  id={params.id}
-		  currentUrl={encodeURIComponent('/inscription/' + params.id)}
+		  currentUrl={currentUrl}
 	    />
 	  </div>
     </main>
